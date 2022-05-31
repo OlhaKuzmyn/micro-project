@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import {IMovie} from "../../interfaces";
+// import {MovieService} from "../../services/movie.service";
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  // movies: IMovie[]
+  constructor() {
   }
 
+  ngOnInit(): void {
+    //   this.movieService.getPage(1).subscribe(value => this.movies = value.results)
+    // }
+
+  }
 }
