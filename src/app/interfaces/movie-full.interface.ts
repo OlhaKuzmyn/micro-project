@@ -12,6 +12,7 @@ export interface IMovieFull extends IMovie {
   budget: number,
   genres: [
     {
+
       id: number,
       name: string
     },
