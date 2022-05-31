@@ -22,7 +22,6 @@ export interface IMovieFull extends IMovie {
     }
   ],
   homepage: string,
-  id: number,
   imdb_id: string,
   original_language: string,
   overview: string,
