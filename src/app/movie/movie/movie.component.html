@@ -1,7 +1,12 @@
 
 <!--<div><img [src]="moviePoster" alt=""></div>-->
-<div class="container" (click)="movieInfo()">
-  <div><img [src]= "movieP+movie.poster_path" alt=""></div>
-  <div>{{movie.original_title}}</div>
+<div>
+  <div class="container" (click)="movieFull()">
+    <div><img [src]= "movieP+movie.poster_path" alt=""></div>
+    <div>{{movie.original_title}}</div>
+  </div>
+<!--  <div>-->
+<!--    <router-outlet></router-outlet>-->
+<!--  </div>-->
 </div>
 

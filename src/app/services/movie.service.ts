@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {IMovie, IPage} from "../interfaces";
+import {IMovie, IMovieFull, IPage} from "../interfaces";
 import {urls} from "../constants";
 
 
@@ -17,8 +17,9 @@ export class MovieService {
     return this.httpClient.get<IPage>(urls.moviesPage,{params:{page}})
   }
 
-  getMovie(id:number): Observable<IMovie> {
-    return this.httpClient.get<IMovie>(`${urls.movieDetails}/${id}`)
+  getMovie(id:number): Observable<IMovieFull> {
+    return this.httpClient.get<IMovieFull>(`${urls.movieDetails}/${id}`)
   }
+
 
 }

@@ -1,5 +1,16 @@
-<div class="container">
-  <app-movie *ngFor="let movie of movies" [movie]="movie"></app-movie>
+<div >
+  <div class="container">
+    <app-movie *ngFor="let movie of movies" [movie]="movie"></app-movie>
+  </div>
+<!--  <div>-->
+<!--    <router-outlet></router-outlet>-->
+<!--  </div>-->
 </div>
-<router-outlet></router-outlet>
+
+<hr/>
+<button (click)="previousPage()" [disabled]="btnDisable">Previous</button>
+<div>this page: {{page}} total pages: {{totPages}}</div>
+<button (click)="nextPage()" [disabled]="btnNextDisable">Next</button>
+
+
 

@@ -6,7 +6,8 @@ import {MainLayoutComponent} from "./layouts/main-layout/main-layout.component";
 const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
       {path: '', redirectTo: 'movies', pathMatch: 'full'},
-      {path: 'movies', loadChildren: () => import('./movie/movie.module').then(value => value.MovieModule)}
+      {path: 'movies', loadChildren: () => import('./movie/movie.module').then(value => value.MovieModule)},
+      {path: 'movie/:id', loadChildren: () => import('./movie-full/movie-full.module').then(value => value.MovieFullModule)}
     ]}
 ]
 

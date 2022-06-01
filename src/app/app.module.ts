@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from "@angular/router";
 import { HeaderComponent } from './app-components/header/header.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import {HttpModule} from "./http.module";
 
 @NgModule({
   declarations: [
@@ -17,17 +18,19 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    // HttpClientModule,
+    HttpModule,
     AppRoutingModule,
     RouterModule
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      multi: true,
-      useClass: MainInterceptor
-    }
-  ],
+  // providers: [
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     multi: true,
+  //     useClass: MainInterceptor
+  //   }
+  // ]
+  // ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

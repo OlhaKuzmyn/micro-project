@@ -23,7 +23,14 @@ export class MovieComponent implements OnInit {
     // this.movieService.getPoster500(this.movie.poster_path).subscribe(value => this.moviePoster = value)
   }
 
-  movieInfo(): void {
-    this.router.navigate([this.movie.id], {relativeTo: this.activatedRoute})
+  // movieInfo(): void {
+  //   this.router.navigate([this.movie.id],
+  //     {relativeTo: this.activatedRoute, state: {movie: this.movie}
+  //     }).then()
+  // }
+  movieFull(): void {
+    this.router.navigate([`movie/${this.movie.id}`],
+      { state: {movie: this.movie}
+      }).then()
   }
 }
