@@ -7,7 +7,8 @@ const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
       {path: '', redirectTo: 'movies', pathMatch: 'full'},
       {path: 'movies', loadChildren: () => import('./movie/movie.module').then(value => value.MovieModule)},
-      {path: 'movie/:id', loadChildren: () => import('./movie-full/movie-full.module').then(value => value.MovieFullModule)}
+      {path: 'movie/:id', loadChildren: () => import('./movie-full/movie-full.module').then(value => value.MovieFullModule)},
+      {path: 'genres', loadChildren: () => import('./genre/genre.module').then(value => value.GenreModule)}
     ]}
 ]
 

@@ -1,0 +1,1 @@
+<a *ngFor="let genre of genresList" routerLink="{{genre.id}}" [queryParams]="{with_genres: genre.id, page: page}">{{genre.name}}</a>
