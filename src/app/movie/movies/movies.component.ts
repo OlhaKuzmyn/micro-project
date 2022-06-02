@@ -15,19 +15,30 @@ export class MoviesComponent implements OnInit {
   btnNextDisable: boolean = false
   totRes: number
   totPages: number
+  with_genres:number
 
   constructor( private movieService:MovieService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     // this.movieService.getPage(1).subscribe(value => this.movies = value.results)
-    this.activatedRoute.queryParams.subscribe(({page})=>{
-      this.movieService.getPage(page || 1).subscribe(value => {
-        this.movies = value.results;
-        this.totPages = value.total_pages
-      })
+    this.activatedRoute.queryParams.subscribe(value => {
+      if (value['with_genres']){
+        this.with_genres = value['with_genres']
+        this.activatedRoute.queryParams.subscribe(({with_genres, page})=>{
+          this.movieService.getByGenre(with_genres, page || 1).subscribe(value => {
+            this.movies = value.results;
+            this.totPages = value.total_pages
+          })
+        })
+      } else {
+        this.activatedRoute.queryParams.subscribe(({page})=>{
+          this.movieService.getPage(page || 1).subscribe(value => {
+            this.movies = value.results;
+            this.totPages = value.total_pages
+          })
+        })
+      }
     })
-    // this.activatedRoute.queryParams.subscribe(value => this.page = Number(value['page']))
-    // this.activatedRoute.queryParams.subscribe(value => console.log(value))
     this.activatedRoute.queryParams.subscribe(value => {
       if (isNaN(Number(value['page'])) ){
         this.page = 1
@@ -37,7 +48,7 @@ export class MoviesComponent implements OnInit {
 
       if (this.page === 1) {
         this.btnDisable = true
-      } else if (this.page === 500){
+      } else if (this.page === 500 || this.page === this.totPages){
         this.btnNextDisable = true
       } else {
         this.btnDisable = false
@@ -52,17 +63,16 @@ export class MoviesComponent implements OnInit {
   // }
 
   nextPage() {
-    this.router.navigate(['movies'],
-      {queryParams: {page: this.page+=1}}
+    this.router.navigate([''],
+      {relativeTo: this.activatedRoute, queryParams: { with_genres: this.with_genres, page: this.page+=1}}
       ).then()
   }
 
   previousPage() {
-      this.btnDisable = false
-      this.router.navigate(['movies'],
-        {queryParams: {page: this.page-=1}}
+      // this.btnDisable = false
+      this.router.navigate([''],
+      {relativeTo: this.activatedRoute, queryParams: { with_genres: this.with_genres, page: this.page-=1}}
       ).then()
-
 
   }
 

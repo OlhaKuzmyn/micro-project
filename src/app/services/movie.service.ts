@@ -25,5 +25,9 @@ export class MovieService {
     return this.httpClient.get<IGenresList>(urls.genreList)
   }
 
+  getByGenre(with_genres:number, page:number = 1): Observable<IPage> {
+    return this.httpClient.get<IPage>(urls.moviesPage, {params: {with_genres,page}})
+  }
+
 
 }
