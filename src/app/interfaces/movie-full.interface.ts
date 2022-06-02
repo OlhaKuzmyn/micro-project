@@ -1,4 +1,5 @@
 import {IMovie} from "./movie.interface";
+import {IGenre} from "./genre.interface";
 
 export interface IMovieFull extends IMovie {
   adult: boolean,
@@ -10,17 +11,7 @@ export interface IMovieFull extends IMovie {
     backdrop_path: string
   },
   budget: number,
-  genres: [
-    {
-
-      id: number,
-      name: string
-    },
-    {
-      id: number,
-      name: string
-    }
-  ],
+  genres: IGenre[],
   homepage: string,
   imdb_id: string,
   original_language: string,
