@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {IMovieFull} from "../../interfaces";
 import {ActivatedRoute, Router} from "@angular/router";
-import {MovieService} from "../../services/movie.service";
+
+import {IMovieFull} from "../../interfaces";
 import { urls } from 'src/app/constants';
 
 @Component({
@@ -13,7 +13,7 @@ export class MovieFullComponent implements OnInit {
   movie: IMovieFull;
   movieP: string = urls.picOG
   movieS: string = urls.picW500
-  constructor(private activatedRoute:ActivatedRoute, private router:Router, private movieService:MovieService) { }
+  constructor(private activatedRoute:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({id}) => {

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+
 import {MovieService} from "../../services/movie.service";
 import {IMovie} from "../../interfaces";
-import {ActivatedRoute, Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-movies',
@@ -20,7 +22,6 @@ export class MoviesComponent implements OnInit {
   constructor( private movieService:MovieService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
-    // this.movieService.getPage(1).subscribe(value => this.movies = value.results)
     this.activatedRoute.queryParams.subscribe(value => {
       if (value['with_genres']){
         this.with_genres = value['with_genres']
@@ -54,8 +55,6 @@ export class MoviesComponent implements OnInit {
         this.btnDisable = false
       }
     })
-
-
   }
 
   // pageChange(num:number) {
@@ -63,14 +62,14 @@ export class MoviesComponent implements OnInit {
   // }
 
   nextPage() {
-    this.router.navigate([''],
+    this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: { with_genres: this.with_genres, page: this.page+=1}}
       ).then()
   }
 
   previousPage() {
       // this.btnDisable = false
-      this.router.navigate([''],
+      this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: { with_genres: this.with_genres, page: this.page-=1}}
       ).then()
 

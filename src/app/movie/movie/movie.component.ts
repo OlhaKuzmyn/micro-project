@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
+
 import {IMovie} from "../../interfaces";
-import {MovieService} from "../../services/movie.service";
 import {urls} from "../../constants";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-movie',
@@ -12,22 +12,13 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class MovieComponent implements OnInit {
   @Input()
   movie: IMovie ;
-  // posterPath: string = this.movie.poster_path
-  // @ts-ignore
-  // moviePoster: any = `${urls.picW500}${this.movie?.poster_path}`
   movieP: string = urls.picW500
 
-  constructor( private router:Router, private activatedRoute:ActivatedRoute) { }
+  constructor( private router:Router) { }
 
   ngOnInit(): void {
-    // this.movieService.getPoster500(this.movie.poster_path).subscribe(value => this.moviePoster = value)
   }
 
-  // movieInfo(): void {
-  //   this.router.navigate([this.movie.id],
-  //     {relativeTo: this.activatedRoute, state: {movie: this.movie}
-  //     }).then()
-  // }
   movieFull(): void {
     this.router.navigate([`movie/${this.movie.id}`],
       { state: {movie: this.movie}

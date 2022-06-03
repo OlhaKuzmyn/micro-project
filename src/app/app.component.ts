@@ -6,10 +6,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'micro-project';
-  // movies: IMovie[]
-  // constructor(private movieService: MovieService) {
-  // }
-  // ngOnInit(): void {
-  //   this.movieService.getPage().subscribe(value => this.movies = value.results)
-  // }
 }

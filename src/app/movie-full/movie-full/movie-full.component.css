@@ -9,9 +9,9 @@
 }
 .bgtext {
   position: absolute;
-  color: aliceblue;
+  color: var(--light-color);
   box-sizing: border-box;
-  border: 1px solid aliceblue;
+  border: 1px solid var(--light-color);
   top: 120%;
   left: 50%;
   padding: 20px;
@@ -23,15 +23,15 @@
 }
 
 .innertxt {
-  color: aliceblue;
+  color: var(--light-color);
   padding-left: 10px;
   box-sizing: border-box;
-  /*color: aliceblue;*/
+  /*color: var(--light-color;*/
   text-align: left;
 }
 
 .link {
   text-decoration: none;
-  color: aliceblue;
+  color: var(--light-color);
 }
 

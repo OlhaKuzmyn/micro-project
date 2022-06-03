@@ -3,15 +3,15 @@
 :root {
   --black-color: black;
   --red-color: red;
-  --light-color: aliceblue;
+  --light-color: beige;
   --dark-red-color: darkred;
 }
 
 body {
   --black-color: black;
   --red-color: red;
-  --light-color: aliceblue;
-  --txt-color: aliceblue;
+  --light-color: beige;
+  --txt-color: beige;
   --dark-red-color: darkred;
   background: var(--black-color);
 }

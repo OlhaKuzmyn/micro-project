@@ -1,0 +1,21 @@
+.form {
+  color: var(--txt-color);
+  display: flex;
+  column-gap: 20px;
+  border-bottom: solid 1px var(--red-color);
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 5px;
+}
+
+.results {
+  padding-left: 20px;
+
+}
+
+.results > a {
+  margin-bottom: 5px;
+  display: block;
+  color: var(--txt-color);
+  text-decoration: none;
+}
