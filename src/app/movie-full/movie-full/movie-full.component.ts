@@ -11,7 +11,7 @@ import { urls } from 'src/app/constants';
 })
 export class MovieFullComponent implements OnInit {
   movie: IMovieFull;
-  // movieP: string = urls.picOG
+  movieP: string = urls.picOG
   movieS: string = urls.picW500
   constructor(private activatedRoute:ActivatedRoute, private router:Router, private movieService:MovieService) { }
 

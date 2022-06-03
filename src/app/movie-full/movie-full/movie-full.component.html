@@ -7,11 +7,29 @@
 
 <!--<div [ngStyle]="{background-image: 'url(./images/' + trls.img + ')'}"></div>-->
 
-<div [ngStyle]="{'background-image': 'url(' + [movieS+movie.poster_path]  +')'}" class="bgimg">
-<!--     [style.height.px]="3000"-->
+<!--ng-style="{'background-image':'url({{speaker.img}})', 'background-position': 'center center', 'background-size': 'cover'}">-->
 
-  <h1>{{movie.original_title}}</h1>
-  <p>{{movie.overview}}</p>
+<!--<div [ngStyle]="{'background-image': 'url(' + [movieP+movie.poster_path]  +')', 'background-position':'center center', 'background-size': 'cover' }" class="bgimg">-->
+<!--     [style.height.px]="3000"-->
+<div [ngStyle]="{'background-image': 'url(' + [movieP+movie.poster_path]  +')' }" class="bgimg">
+
+
 </div>
 
 
+<div class="bgtext">
+  <img [src]= "movieS+movie.poster_path" [alt]="movie.original_title">
+  <h1>{{movie.original_title}}</h1>
+  <p>{{movie.overview}}</p>
+  <div class="innertxt">
+    <p *ngIf="movie.adult">PG: Movie is for adult audience only</p>
+    <p *ngIf="!movie.adult">PG: Movie is for everyone</p>
+    <p>Budget: {{movie.budget}}</p>
+    <ul>Genres:
+      <li *ngFor="let genre of movie.genres">{{genre.name}}</li>
+    </ul>
+    <p>Homepage: <a href="{{movie.homepage}}" class="link">{{movie.homepage}}</a></p>
+    <p>Language: {{movie.original_language}}</p>
+    <p>Vote Average: {{movie.vote_average}}, with {{movie.vote_count}} people voted</p>
+  </div>
+</div>
