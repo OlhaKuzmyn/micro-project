@@ -4,12 +4,17 @@
   max-height: 70px;
   margin: 5px 0;
   padding: 10px 10px;
-  border-bottom: solid 2px red;
-  border-top: solid 2px red;
+  border-bottom: solid 2px var(--red-color);
+  border-top: solid 2px var(--red-color);
   max-width: 1376px;
 }
 .genre-box > a {
   text-decoration: none;
-  color: aliceblue;
+  color: var(--txt-color);
   padding: 5px 5px;
+}
+
+
+.active {
+  color: red;
 }

@@ -1,5 +1,5 @@
 <div class="genre-box">
-    <a *ngFor="let genre of genresList" routerLink="" [queryParams]="{with_genres: genre.id, page: page}">{{genre.name}}</a>
+    <a *ngFor="let genre of genresList" routerLink="" [queryParams]="{with_genres: genre.id, page: page}" routerLinkActive="active">{{genre.name}}</a>
 </div>
 
 

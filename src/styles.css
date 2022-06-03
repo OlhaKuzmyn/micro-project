@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --black-color: black;
+  --red-color: red;
+  --light-color: aliceblue;
+  --dark-red-color: darkred;
+}
+
 body {
-  background: black;
+  --black-color: black;
+  --red-color: red;
+  --light-color: aliceblue;
+  --txt-color: aliceblue;
+  --dark-red-color: darkred;
+  background: var(--black-color);
+}
+body.light-theme {
+  background: var(--light-color);
+  --txt-color: black;
 }

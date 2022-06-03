@@ -13,7 +13,8 @@
   height: 375px
 }
 
+
 .title {
   text-align: center;
-  color: aliceblue;
+  color: var(--txt-color);
 }

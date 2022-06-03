@@ -4,8 +4,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 50px;
   box-sizing: border-box;
+  max-width: 1376px;
 
 }
 .menu > div> a {
@@ -25,4 +26,21 @@
   margin: 13px 0;
   text-align: center;
   color: aliceblue;
+}
+
+.themebtn {
+  height: 35px;
+  width: 60px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  background: transparent;
+  color: var(--txt-color);
+  border: var(--txt-color) solid 1px;
+  cursor: pointer;
+}
+
+.rightside {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
 }

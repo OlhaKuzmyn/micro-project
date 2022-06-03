@@ -12,15 +12,15 @@
 }
 .pages {
   box-sizing: border-box;
-  border-top: solid 2px red;
+  border-top: solid 2px var(--red-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px 20px;
 }
 .pages > button {
-  background: darkred;
-  color: aliceblue;
+  background: var(--dark-red-color);
+  color: var(--light-color);
   box-sizing: border-box;
   border-radius: 2px;
   width: 70px;
@@ -30,6 +30,17 @@
 
 }
 
+.pages > button:hover{
+  background: var(--red-color);
+  color: black;
+}
+.pages > button:disabled {
+  background: #3b3737;
+  color: var(--red-color);
+  cursor: default;
+}
+
+
 .pages > div > p {
-  color: aliceblue;
+  color: var(--txt-color);
 }

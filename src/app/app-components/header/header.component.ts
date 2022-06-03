@@ -17,4 +17,10 @@ export class HeaderComponent implements OnInit {
     // }
 
   }
+
+
+  theme(): void {
+
+    document.body.classList.toggle('light-theme');
+  }
 }
