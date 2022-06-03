@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {IMovieFull} from "../../interfaces";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MovieService} from "../../services/movie.service";
+import { urls } from 'src/app/constants';
 
 @Component({
   selector: 'app-movie-full',
@@ -10,6 +11,8 @@ import {MovieService} from "../../services/movie.service";
 })
 export class MovieFullComponent implements OnInit {
   movie: IMovieFull;
+  // movieP: string = urls.picOG
+  movieS: string = urls.picW500
   constructor(private activatedRoute:ActivatedRoute, private router:Router, private movieService:MovieService) { }
 
   ngOnInit(): void {
@@ -18,7 +21,10 @@ export class MovieFullComponent implements OnInit {
       if (state) {
         this.movie = state
       } else {
-        this.movieService.getMovie(id).subscribe(value => this.movie = value)
+        this.activatedRoute.data.subscribe(({data})=>{
+          this.movie = data
+        })
+        // this.movieService.getMovie(id).subscribe(value => this.movie = value)
       }
     })
   }

@@ -1,11 +1,19 @@
 .container {
   padding: 10px;
   box-sizing: border-box;
-  max-width: 300px;
-  max-height: 400px;
+  width: 270px;
+  height: 450px;
+  border: solid 1px red;
+  border-radius: 4px;
+  cursor: pointer
 }
 
-.container > div > img {
+.poster {
   width: 250px;
-  height: 350px;
+  height: 375px
+}
+
+.title {
+  text-align: center;
+  color: aliceblue;
 }

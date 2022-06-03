@@ -7,10 +7,12 @@
 <!--  </div>-->
 </div>
 
-<hr/>
-<button (click)="previousPage()" [disabled]="btnDisable">Previous</button>
-<div>this page: {{page}} total pages: {{totPages}}</div>
-<button (click)="nextPage()" [disabled]="btnNextDisable">Next</button>
+<div class="pages">
+  <button (click)="previousPage()" [disabled]="btnDisable">Previous</button>
+  <div><p>this page: {{page}} total pages: {{totPages}}</p></div>
+  <button (click)="nextPage()" [disabled]="btnNextDisable">Next</button>
+</div>
+
 
 
 

@@ -1,11 +1,35 @@
 .container {
+  margin: 15px 5px;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 10px;
-  row-gap: 10px;
-  cursor: pointer
+  column-gap: 15px;
+  row-gap: 15px;
+  justify-content: center;
 }
 .box {
   display: flex;
   column-gap: 20px;
+}
+.pages {
+  box-sizing: border-box;
+  border-top: solid 2px red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 20px;
+}
+.pages > button {
+  background: darkred;
+  color: aliceblue;
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 70px;
+  height: 30PX;
+  border: none;
+  cursor: pointer;
+
+}
+
+.pages > div > p {
+  color: aliceblue;
 }

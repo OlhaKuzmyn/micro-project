@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { MovieFullRoutingModule } from './movie-full-routing.module';
 import {HttpModule} from "../http.module";
 import { MovieFullComponent } from './movie-full/movie-full.component';
+import {MovieService} from "../services/movie.service";
+import {MovieFullResolver} from "./resolver/movie-full.resolver";
 
 
 @NgModule({
@@ -14,6 +16,10 @@ import { MovieFullComponent } from './movie-full/movie-full.component';
     CommonModule,
     MovieFullRoutingModule,
     HttpModule
+  ],
+  providers: [
+    MovieService,
+    MovieFullResolver
   ]
 })
 export class MovieFullModule { }

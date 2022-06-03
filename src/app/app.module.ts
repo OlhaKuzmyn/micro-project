@@ -8,6 +8,7 @@ import { HeaderComponent } from './app-components/header/header.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import {HttpModule} from "./http.module";
 import {GenreListComponent} from "./app-components/genre-list/genre-list.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,12 +17,13 @@ import {GenreListComponent} from "./app-components/genre-list/genre-list.compone
     MainLayoutComponent,
     GenreListComponent
   ],
-    imports: [
-        BrowserModule,
-        HttpModule,
-        AppRoutingModule,
-        RouterModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpModule,
+    AppRoutingModule,
+    RouterModule,
+    FormsModule
+  ],
 
   bootstrap: [AppComponent]
 })
