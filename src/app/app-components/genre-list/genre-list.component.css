@@ -8,7 +8,7 @@
   border-top: solid 2px var(--red-color);
   max-width: 1376px;
 }
-.genre-box > a {
+.genrename {
   text-decoration: none;
   color: var(--txt-color);
   padding: 5px 5px;

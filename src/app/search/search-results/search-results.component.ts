@@ -25,14 +25,17 @@ export class SearchResultsComponent implements OnInit {
     this._createForm()
   }
   ngOnInit(): void {
-    console.log(this.totPages);
+    // console.log(this.totPages);
     this.activatedRoute.queryParams.subscribe(value => {
       if (isNaN(Number(value['page'])) ){
         this.page = 1
       } else {
         this.page = Number(value['page'])
       }
-      if (this.page === 1) {
+      if (this.page === 1 && this.totPages===1) {
+        this.btnDisable = true
+        this.btnNextDisable = true
+      }else if(this.page === 1){
         this.btnDisable = true
       } else if (this.page === this.totPages){
         this.btnNextDisable = true
@@ -50,7 +53,7 @@ export class SearchResultsComponent implements OnInit {
 
   searchMovie(): void {
     this.activatedRoute.queryParams.subscribe(({query, page})=>{
-      console.log(query, page);
+      // console.log(query, page);
       this.query=this.form.value.searchword
       let params = new HttpParams().set('query', this.query).set('page', this.page)
       this.movieService.getBySearch(params).subscribe(value => {
