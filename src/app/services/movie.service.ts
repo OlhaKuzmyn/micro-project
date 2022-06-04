@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IGenresList, IMovieFull, IPage} from "../interfaces";
 import {urls} from "../constants";
+import {Params} from "@angular/router";
 
 
 @Injectable({
@@ -12,8 +13,8 @@ export class MovieService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getPage(page:number = 1): Observable<IPage> {
-    return this.httpClient.get<IPage>(urls.moviesPage,{params:{page}})
+  getPage(params:HttpParams): Observable<IPage> {
+    return this.httpClient.get<IPage>(urls.moviesPage,{params:params})
   }
 
   getMovie(id:number): Observable<IMovieFull> {
@@ -24,12 +25,12 @@ export class MovieService {
     return this.httpClient.get<IGenresList>(urls.genreList)
   }
 
-  getByGenre(with_genres:number, page:number = 1): Observable<IPage> {
-    return this.httpClient.get<IPage>(urls.moviesPage, {params: {with_genres,page}})
+  getByGenre(params: Params): Observable<IPage> {
+    return this.httpClient.get<IPage>(urls.moviesPage, {params: params})
   }
 
-  getBySearch(query:string, page: number): Observable<IPage> {
-    return this.httpClient.get<IPage>(urls.search, {params: {query,page}})
+  getBySearch(params:HttpParams): Observable<IPage> {
+    return this.httpClient.get<IPage>(urls.search, {params:params})
   }
 
 

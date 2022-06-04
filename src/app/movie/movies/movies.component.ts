@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 import {MovieService} from "../../services/movie.service";
 import {IMovie} from "../../interfaces";
+import {HttpParams} from "@angular/common/http";
 
 
 @Component({
@@ -24,20 +25,20 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(value => {
       if (value['with_genres']){
-        this.with_genres = value['with_genres']
-        this.activatedRoute.queryParams.subscribe(({with_genres, page})=>{
-          this.movieService.getByGenre(with_genres, page || 1).subscribe(value => {
+        this.with_genres = value['with_genres'];
+        let params = new HttpParams().set('with_genres', this.with_genres).set('page', value['page'] || this.page)
+          this.movieService.getByGenre(params).subscribe(value => {
             this.movies = value.results;
-            this.totPages = value.total_pages
+            this.totPages = value.total_pages;
+            this.totRes = value.total_results
           })
-        })
       } else {
-        this.activatedRoute.queryParams.subscribe(({page})=>{
-          this.movieService.getPage(page || 1).subscribe(value => {
+        let paramsP = new HttpParams().set('page', value['page'] || this.page)
+          this.movieService.getPage(paramsP).subscribe(value => {
             this.movies = value.results;
             this.totPages = value.total_pages
           })
-        })
+
       }
     })
     this.activatedRoute.queryParams.subscribe(value => {
@@ -46,7 +47,6 @@ export class MoviesComponent implements OnInit {
       } else {
         this.page = Number(value['page'])
       }
-
       if (this.page === 1) {
         this.btnDisable = true
       } else if (this.page === 500 || this.page === this.totPages){
@@ -61,17 +61,17 @@ export class MoviesComponent implements OnInit {
   //   this.page = num
   // }
 
-  nextPage() {
+  nextPage():void {
     this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: { with_genres: this.with_genres, page: this.page+=1}}
       ).then()
   }
 
-  previousPage() {
-      // this.btnDisable = false
+  previousPage():void {
       this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: { with_genres: this.with_genres, page: this.page-=1}}
       ).then()
+    this.btnNextDisable=false
 
   }
 

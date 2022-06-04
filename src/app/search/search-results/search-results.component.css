@@ -2,7 +2,7 @@
   color: var(--txt-color);
   display: flex;
   column-gap: 20px;
-  border-bottom: solid 1px var(--red-color);
+  /*border-bottom: solid 1px var(--red-color);*/
   box-sizing: border-box;
   padding: 10px;
   margin: 5px;
@@ -18,4 +18,39 @@
   display: block;
   color: var(--txt-color);
   text-decoration: none;
+}
+
+.pages {
+  box-sizing: border-box;
+  border-top: solid 2px var(--red-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 20px;
+}
+.pages > button {
+  background: var(--dark-red-color);
+  color: var(--light-color);
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 70px;
+  height: 30PX;
+  border: none;
+  cursor: pointer;
+
+}
+
+.pages > button:hover{
+  background: var(--red-color);
+  color: black;
+}
+.pages > button:disabled {
+  background: #3b3737;
+  color: var(--red-color);
+  cursor: default;
+}
+
+
+.pages > div > p {
+  color: var(--txt-color);
 }

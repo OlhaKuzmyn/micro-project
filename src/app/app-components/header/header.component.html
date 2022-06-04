@@ -1,8 +1,7 @@
-<!--<div *ngFor="let movie of movies">{{movie.original_title}}</div>-->
-<!--<div> <img src="https://image.tmdb.org/t/p/w500/6JjfSchsU6daXk2AKX8EEBjO3Fm.jpg" alt="MorbTime"> </div>-->
+
 <div class="menu">
   <div>
-    <a routerLink="movies" routerLinkActive="active">Movies</a>
+    <a routerLink="movies" routerLinkActive="active" [queryParams]="{page: 1}">Movies</a>
   </div>
   <div>
     <a routerLink="search" routerLinkActive="active">Search</a>
@@ -13,6 +12,6 @@
       <p class="username">User</p>
     </div>
   </div>
-<!--  <a routerLink="genres" routerLinkActive="active">Genres</a>-->
+
 
 </div>

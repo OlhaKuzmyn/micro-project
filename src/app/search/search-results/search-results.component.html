@@ -6,3 +6,9 @@
 <div class="results">
   <a *ngFor="let movie of searchRes" routerLink="movie/{{movie.id}}">{{movie.name}}</a>
 </div>
+
+<div class="pages">
+  <button (click)="previousPage()" [disabled]="btnDisable">Previous</button>
+  <div><p>this page: {{page}} total pages: {{totPages}} </p></div>
+  <button (click)="nextPage()" [disabled]="btnNextDisable">Next</button>
+</div>
