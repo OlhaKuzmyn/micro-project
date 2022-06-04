@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpParams} from "@angular/common/http";
 
@@ -47,7 +47,7 @@ export class SearchResultsComponent implements OnInit {
   }
   _createForm(): void {
     this.form = new FormGroup({
-      searchword: new FormControl(null)
+      searchword: new FormControl(null, [Validators.required])
     })
   }
 
@@ -62,6 +62,7 @@ export class SearchResultsComponent implements OnInit {
       this.router.navigate([],
         {relativeTo:this.activatedRoute,queryParams: {query: this.query, page: this.page}}).then()
     })
+    this.form.reset()
   }
 
   nextPage():void {
@@ -78,5 +79,9 @@ export class SearchResultsComponent implements OnInit {
     ).then()
     this.btnNextDisable=false
 
+  }
+
+  toMovie(id:number):void {
+    this.router.navigate(['/movie/'+id]).then()
   }
 }

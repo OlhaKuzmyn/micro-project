@@ -6,6 +6,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
 import {MovieService} from "../services/movie.service";
 import {HttpModule} from "../http.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -13,11 +14,12 @@ import {HttpModule} from "../http.module";
     MoviesComponent,
     MovieComponent
   ],
-  imports: [
-    CommonModule,
-    MovieRoutingModule,
-    HttpModule
-  ],
+    imports: [
+        CommonModule,
+        MovieRoutingModule,
+        HttpModule,
+        ReactiveFormsModule
+    ],
   providers: [
     MovieService
   ]

@@ -1,14 +1,14 @@
 <form [formGroup]="form" class="form">
-  <div><label>Search: <input type="text" formControlName="searchword"></label></div>
-  <button (click)="searchMovie()">Search</button>
+  <div><label>Search: <input type="text" formControlName="searchword" class="input"></label></div>
+  <button (click)="searchMovie()" class="btnPage" [disabled]="form.invalid">Search</button>
 </form>
 
 <div class="results">
-  <a *ngFor="let movie of searchRes" routerLink="movie/{{movie.id}}">{{movie.name}}</a>
+  <p *ngFor="let movie of searchRes" (click)="toMovie(movie.id)" class="result">{{movie.original_title}}</p>
 </div>
 
 <div class="pages">
-  <button (click)="previousPage()" [disabled]="btnDisable">Previous</button>
+  <button (click)="previousPage()" [disabled]="btnDisable" class="btnPage">Previous</button>
   <div><p>this page: {{page}} total pages: {{totPages}} </p></div>
-  <button (click)="nextPage()" [disabled]="btnNextDisable">Next</button>
+  <button (click)="nextPage()" [disabled]="btnNextDisable" class="btnPage">Next</button>
 </div>

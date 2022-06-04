@@ -5,6 +5,7 @@
   box-sizing: border-box;
   padding: 10px;
   margin: 5px;
+  align-items: center;
 }
 
 .results {
@@ -12,11 +13,14 @@
 
 }
 
-.results > a {
+.result {
   margin-bottom: 5px;
-  display: block;
   color: var(--txt-color);
-  text-decoration: none;
+  cursor: pointer;
+}
+
+.result:hover{
+  color: var(--red-color);
 }
 
 .pages {
@@ -27,7 +31,7 @@
   justify-content: space-between;
   padding: 10px 20px 20px;
 }
-.pages > button {
+.btnPage {
   background: var(--dark-red-color);
   color: var(--light-color);
   box-sizing: border-box;
@@ -39,11 +43,11 @@
 
 }
 
-.pages > button:hover{
+.btnPage:hover{
   background: var(--red-color);
   color: black;
 }
-.pages > button:disabled {
+.btnPage:disabled {
   background: #3b3737;
   color: var(--red-color);
   cursor: default;
@@ -52,4 +56,9 @@
 
 .pages > div > p {
   color: var(--txt-color);
+}
+
+.input {
+  background: #3b3737;
+  color: var(--light-color);
 }

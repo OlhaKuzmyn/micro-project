@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpParams} from "@angular/common/http";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {MovieService} from "../../services/movie.service";
 import {IMovie} from "../../interfaces";
+
 
 @Component({
   selector: 'app-movies',
@@ -15,11 +17,14 @@ export class MoviesComponent implements OnInit {
   page: number = 1
   btnDisable: boolean = true
   btnNextDisable: boolean = false
-  totRes: number
   totPages: number
   with_genres:number
 
-  constructor( private movieService:MovieService, private activatedRoute:ActivatedRoute, private router:Router) { }
+  form: FormGroup;
+
+  constructor( private movieService:MovieService, private activatedRoute:ActivatedRoute, private router:Router) {
+    this._createForm()
+  }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(value => {
@@ -29,7 +34,6 @@ export class MoviesComponent implements OnInit {
           this.movieService.getByGenre(params).subscribe(value => {
             this.movies = value.results;
             this.totPages = value.total_pages;
-            this.totRes = value.total_results
           })
       } else {
         let paramsP = new HttpParams().set('page', value['page'] || this.page)
@@ -56,9 +60,12 @@ export class MoviesComponent implements OnInit {
     })
   }
 
-  // pageChange(num:number) {
-  //   this.page = num
-  // }
+  _createForm(): void {
+    this.form = new FormGroup({
+      pagenum: new FormControl(null, [Validators.required, Validators.min(1), Validators.max(500 || this.totPages)])
+    })
+  }
+
 
   nextPage():void {
     this.router.navigate([],
@@ -74,4 +81,10 @@ export class MoviesComponent implements OnInit {
 
   }
 
+  jumpToPage():void {
+
+    this.page = this.form.value.pagenum
+    this.router.navigate([], {relativeTo:this.activatedRoute, queryParams: {with_genres: this.with_genres, page: this.page}}).then()
+    this.form.reset()
+  }
 }

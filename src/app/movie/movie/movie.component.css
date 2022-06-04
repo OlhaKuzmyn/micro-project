@@ -8,6 +8,10 @@
   cursor: pointer
 }
 
+.container:hover {
+  background-color: rgba(75, 75, 75, 0.4);
+}
+
 .poster {
   width: 250px;
   height: 375px
