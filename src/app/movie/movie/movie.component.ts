@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 import {IMovie} from "../../interfaces";
 import {urls} from "../../constants";
-import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-movie',

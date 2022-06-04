@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Params} from "@angular/router";
+
 import {IGenresList, IMovieFull, IPage} from "../interfaces";
 import {urls} from "../constants";
-import {Params} from "@angular/router";
 
 
 @Injectable({

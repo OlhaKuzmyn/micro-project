@@ -2,7 +2,6 @@
   color: var(--txt-color);
   display: flex;
   column-gap: 20px;
-  /*border-bottom: solid 1px var(--red-color);*/
   box-sizing: border-box;
   padding: 10px;
   margin: 5px;

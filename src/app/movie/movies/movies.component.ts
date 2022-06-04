@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {HttpParams} from "@angular/common/http";
 
 import {MovieService} from "../../services/movie.service";
 import {IMovie} from "../../interfaces";
-import {HttpParams} from "@angular/common/http";
-
 
 @Component({
   selector: 'app-movies',
@@ -40,8 +39,7 @@ export class MoviesComponent implements OnInit {
           })
 
       }
-    })
-    this.activatedRoute.queryParams.subscribe(value => {
+
       if (isNaN(Number(value['page'])) ){
         this.page = 1
       } else {
@@ -54,6 +52,7 @@ export class MoviesComponent implements OnInit {
       } else {
         this.btnDisable = false
       }
+
     })
   }
 
