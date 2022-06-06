@@ -61,7 +61,7 @@ export class SearchResultsComponent implements OnInit {
       })
       this.router.navigate([],
         {relativeTo:this.activatedRoute,queryParams: {query: this.query, page: this.page}}).then()
-      this.form.reset()
+
     })
   }
 

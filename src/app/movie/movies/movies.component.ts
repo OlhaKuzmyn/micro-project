@@ -18,7 +18,7 @@ export class MoviesComponent implements OnInit {
   btnDisable: boolean = true
   btnNextDisable: boolean = false
   totPages: number
-  with_genres:number
+  with_genres:number | null
 
   form: FormGroup;
 
@@ -30,12 +30,13 @@ export class MoviesComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(value => {
       if (value['with_genres']){
         this.with_genres = value['with_genres'];
-        let params = new HttpParams().set('with_genres', this.with_genres).set('page', value['page'] || this.page)
+        let params = new HttpParams().set('with_genres', this.with_genres!).set('page', value['page'] || this.page)
           this.movieService.getByGenre(params).subscribe(value => {
             this.movies = value.results;
             this.totPages = value.total_pages;
           })
       } else {
+        this.with_genres = null
         let paramsP = new HttpParams().set('page', value['page'] || this.page)
           this.movieService.getPage(paramsP).subscribe(value => {
             this.movies = value.results;
