@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpParams} from "@angular/common/http";
 
-import {MovieService} from "../../services/movie.service";
+import {MovieService} from "../../services";
 import {IMovie} from "../../interfaces";
 
 

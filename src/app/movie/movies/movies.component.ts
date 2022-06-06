@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpParams} from "@angular/common/http";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
-import {MovieService} from "../../services/movie.service";
+import {MovieService} from "../../services";
 import {IMovie} from "../../interfaces";
 
 
@@ -31,7 +31,7 @@ export class MoviesComponent implements OnInit {
       if (value['with_genres']){
         this.with_genres = value['with_genres'];
         let params = new HttpParams().set('with_genres', this.with_genres!).set('page', value['page'] || this.page)
-          this.movieService.getByGenre(params).subscribe(value => {
+          this.movieService.getPage(params).subscribe(value => {
             this.movies = value.results;
             this.totPages = value.total_pages;
           })

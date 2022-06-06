@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MovieFullRoutingModule } from './movie-full-routing.module';
 import {HttpModule} from "../http.module";
 import { MovieFullComponent } from './movie-full/movie-full.component';
-import {MovieService} from "../services/movie.service";
+import {MovieService} from "../services";
 import {MovieFullResolver} from "./resolver/movie-full.resolver";
 
 

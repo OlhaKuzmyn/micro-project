@@ -5,7 +5,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import {HttpModule} from "../http.module";
-import {MovieService} from "../services/movie.service";
+import {MovieService} from "../services";
 
 
 @NgModule({

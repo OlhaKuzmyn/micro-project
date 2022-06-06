@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import {MovieService} from "../../services/movie.service";
+import {MovieService} from "../../services";
 import {IMovieFull} from "../../interfaces";
 
 @Injectable({
