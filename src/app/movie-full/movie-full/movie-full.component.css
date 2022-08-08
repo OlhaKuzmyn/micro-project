@@ -8,11 +8,12 @@
 
 }
 .bgtext {
+  max-width: 1276px;
   position: absolute;
   color: var(--light-color);
   box-sizing: border-box;
   border: 1px solid var(--light-color);
-  top: 120%;
+  top: 80%;
   left: 50%;
   padding: 20px;
   text-align: center;
