@@ -15,8 +15,6 @@ import {IMovie} from "../../interfaces";
 export class MoviesComponent implements OnInit {
   movies: IMovie[]
   page: number = 1
-  btnDisable: boolean = true
-  btnNextDisable: boolean = false
   totPages: number
   with_genres:number | null
 
@@ -50,13 +48,6 @@ export class MoviesComponent implements OnInit {
       } else {
         this.page = Number(value['page'])
       }
-      if (this.page === 1) {
-        this.btnDisable = true
-      } else if (this.page === 500 || this.page === this.totPages){
-        this.btnNextDisable = true
-      } else {
-        this.btnDisable = false
-      }
 
     })
   }
@@ -78,7 +69,6 @@ export class MoviesComponent implements OnInit {
       this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: { with_genres: this.with_genres, page: this.page-=1}}
       ).then()
-    this.btnNextDisable=false
 
   }
 

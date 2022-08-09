@@ -19,8 +19,6 @@ export class SearchResultsComponent implements OnInit {
   query: string;
 
   totPages:number
-  btnDisable: boolean = true
-  btnNextDisable: boolean = false
 
   constructor(private movieService:MovieService, private router:Router, private activatedRoute:ActivatedRoute) {
     this._createForm()
@@ -31,16 +29,6 @@ export class SearchResultsComponent implements OnInit {
         this.page = 1
       } else {
         this.page = Number(value['page'])
-      }
-      if (this.page === 1 && this.totPages===1) {
-        this.btnDisable = true
-        this.btnNextDisable = true
-      }else if(this.page === 1){
-        this.btnDisable = true
-      } else if (this.page === this.totPages){
-        this.btnNextDisable = true
-      } else {
-        this.btnDisable = false
       }
     })
 
@@ -75,7 +63,6 @@ export class SearchResultsComponent implements OnInit {
     this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: {page: this.page-=1}}
     ).then()
-    this.btnNextDisable=false
 
   }
 

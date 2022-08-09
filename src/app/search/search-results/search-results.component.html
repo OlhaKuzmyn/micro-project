@@ -7,8 +7,8 @@
   <p *ngFor="let movie of searchRes" (click)="toMovie(movie.id)" class="result">{{movie.original_title}}</p>
 </div>
 
-<div class="pages">
-  <button (click)="previousPage()" [disabled]="btnDisable" class="btnPage">Previous</button>
+<div *ngIf="query" class="pages">
+  <button (click)="previousPage()" [disabled]="page === 1 " class="btnPage">Previous</button>
   <div><p>this page: {{page}} total pages: {{totPages}} </p></div>
-  <button (click)="nextPage()" [disabled]="btnNextDisable" class="btnPage">Next</button>
+  <button (click)="nextPage()" [disabled]="page === totPages" class="btnPage">Next</button>
 </div>

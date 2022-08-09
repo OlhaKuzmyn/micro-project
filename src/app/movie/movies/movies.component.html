@@ -3,7 +3,7 @@
   <app-movie *ngFor="let movie of movies" [movie]="movie"></app-movie>
 </div>
 <div class="pages">
-  <button (click)="previousPage()" [disabled]="btnDisable" class="btnPage">Previous</button>
+  <button (click)="previousPage()" [disabled]="page === 1" class="btnPage">Previous</button>
   <div><p>this page: {{page}} total pages: {{totPages}} </p></div>
   <div>
     <form [formGroup]="form" class="form">
@@ -11,7 +11,7 @@
       <button (click)="jumpToPage()" [disabled]="form.invalid" class="btnPage">Go to Page</button>
     </form>
   </div>
-  <button (click)="nextPage()" [disabled]="btnNextDisable" class="btnPage">Next</button>
+  <button (click)="nextPage()" [disabled]="page === 500" class="btnPage">Next</button>
 </div>
 
 
