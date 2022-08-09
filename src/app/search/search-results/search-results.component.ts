@@ -5,6 +5,7 @@ import {HttpParams} from "@angular/common/http";
 
 import {MovieService} from "../../services";
 import {IMovie} from "../../interfaces";
+import {ViewportScroller} from "@angular/common";
 
 
 @Component({
@@ -20,7 +21,7 @@ export class SearchResultsComponent implements OnInit {
 
   totPages:number
 
-  constructor(private movieService:MovieService, private router:Router, private activatedRoute:ActivatedRoute) {
+  constructor(private movieService:MovieService, private router:Router, private activatedRoute:ActivatedRoute, private viewportScroller:ViewportScroller) {
     this._createForm()
   }
   ngOnInit(): void {
@@ -57,13 +58,14 @@ export class SearchResultsComponent implements OnInit {
     this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: {page: this.page+=1}}
     ).then()
+    this.viewportScroller.scrollToAnchor('results')
   }
 
   previousPage():void {
     this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: {page: this.page-=1}}
     ).then()
-
+    this.viewportScroller.scrollToAnchor('results')
   }
 
   toMovie(id:number):void {

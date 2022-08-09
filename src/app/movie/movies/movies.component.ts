@@ -5,6 +5,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {MovieService} from "../../services";
 import {IMovie} from "../../interfaces";
+import {ViewportScroller} from "@angular/common";
 
 
 @Component({
@@ -20,7 +21,7 @@ export class MoviesComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor( private movieService:MovieService, private activatedRoute:ActivatedRoute, private router:Router) {
+  constructor( private movieService:MovieService, private activatedRoute:ActivatedRoute, private router:Router, private viewportScroller:ViewportScroller) {
     this._createForm()
   }
 
@@ -63,13 +64,14 @@ export class MoviesComponent implements OnInit {
     this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: { with_genres: this.with_genres, page: this.page+=1}}
       ).then()
+    this.viewportScroller.scrollToAnchor('container')
   }
 
   previousPage():void {
       this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: { with_genres: this.with_genres, page: this.page-=1}}
       ).then()
-
+    this.viewportScroller.scrollToAnchor('container')
   }
 
   jumpToPage():void {

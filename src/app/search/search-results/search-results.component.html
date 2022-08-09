@@ -3,7 +3,7 @@
   <button (click)="searchMovie()" class="btnPage" [disabled]="form.invalid">Search</button>
 </form>
 
-<div class="results">
+<div class="results" id="results">
   <p *ngFor="let movie of searchRes" (click)="toMovie(movie.id)" class="result">{{movie.original_title}}</p>
 </div>
 
